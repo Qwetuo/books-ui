@@ -103,7 +103,7 @@ class App extends Component {
           return <li key={book._id}>{book.title}</li>;
         })}
         <h1>AUTHORS</h1>
-        {this.state.books.map(authors => {
+        {this.state.authors.map(authors => {
           return <li key={authors._id}>{authors.name}</li>;
         })}
       </div>
