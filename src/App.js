@@ -20,6 +20,40 @@
 
 // export default App;
 
+// import React, { Component } from "react";
+// import "./App.css";
+
+// class App extends Component {
+//   constructor() {
+//     super();
+//     this.state = {
+//       books: []
+//     };
+//   }
+//   render() {
+//     return (
+//       <div>
+//         {this.state.books.map(book => {
+//           return <li key={book._id}>{book.title}</li>;
+//         })}
+//       </div>
+//     );
+//   }
+//   async componentDidMount() {
+//     const response = await fetch(
+//       process.env.REACT_APP_BOOKS_API || "http://localhost:3000/books"
+//     );
+//     console.log("response", response);
+//     const books = await response.json();
+//     console.log("books", books);
+//     this.setState({
+//       books: books
+//     });
+//   }
+// }
+
+// export default App;
+
 import React, { Component } from "react";
 import "./App.css";
 
@@ -30,6 +64,23 @@ class App extends Component {
       books: []
     };
   }
+
+  async getBooks() {
+    const url =
+      process.env.REACT_APP_BOOKS_API || "http://localhost:3000/books";
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      this.setState({
+        books: data
+      });
+    }
+  }
+
+  async componentDidMount() {
+    await this.getBooks();
+  }
+
   render() {
     return (
       <div>
@@ -38,17 +89,6 @@ class App extends Component {
         })}
       </div>
     );
-  }
-  async componentDidMount() {
-    const response = await fetch(
-      process.env.REACT_APP_BOOKS_API || "http://localhost:3000/books"
-    );
-    console.log("response", response);
-    const books = await response.json();
-    console.log("books", books);
-    this.setState({
-      books: books
-    });
   }
 }
 
