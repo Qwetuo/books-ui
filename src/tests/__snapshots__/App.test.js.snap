@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders App 1`] = `
+<div>
+  <Books />
+  <Authors />
+</div>
+`;
+
+exports[`renders Authors 1`] = `
+<div>
+  <h1>
+    AUTHORS
+  </h1>
+</div>
+`;
+
+exports[`renders Books 1`] = `
+<div>
+  <h1>
+    BOOKS
+  </h1>
+</div>
+`;

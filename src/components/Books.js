@@ -17,6 +17,16 @@ class Books extends Component {
       const data = await response.json();
       this.setState({
         books: data
+    //     books: [
+    //       {
+    //         title: "book1",
+    //         _id: "1"
+    //       },
+    //       {
+    //         title: "book2",
+    //         _id: "2"
+    //       }
+    //     ]
       });
     }
   }
